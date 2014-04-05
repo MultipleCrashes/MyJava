@@ -36,7 +36,7 @@ class TreeNode
     }
     else
     {
-    Node current=newNode;
+    Node current=root;
     Node parent;
     while(true)
     {
