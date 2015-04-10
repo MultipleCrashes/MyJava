@@ -12,8 +12,13 @@ class link{
 
 class LinkedListApp
 {
- link head=null;
- link first=null;
+ link head;
+ link first;
+	LinkedListApp()
+	{
+	first=null;
+	head=null;
+	}
 
  public void displayLink()
  { 
