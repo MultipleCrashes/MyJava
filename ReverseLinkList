@@ -1,0 +1,121 @@
+import java.io.*;
+
+
+class link{
+   int data;
+   link next;
+	link(int data)
+	{
+	this.data=data;
+	}
+}
+
+class LinkedListApp
+{
+ link head;
+ link first;
+	LinkedListApp()
+	{
+	first=null;
+	head=null;
+	}
+
+ public void displayLink()
+ { 
+ link itervar=first;
+  while(itervar.next!=null)
+	{
+	System.out.print(" ->"+itervar.data);
+	//System.out.println("POINTER ->"+itervar.next);
+	itervar=itervar.next;
+	}
+ 
+  }
+
+
+
+ public void appendLink(int data)
+ {
+    
+    link nl=new link(data);
+    if(head==null)
+	{
+	System.out.println("head is null ,hence first entry to be inserted into linklist");
+        first=nl;
+        head=nl;
+	head.next=null;
+        }
+    /*else
+     {
+      
+      head.next=nl;
+      head=head.next;
+      head.next=null;
+      } */
+	
+      else
+ 	{
+	link current=first;
+	link prev=null;
+	while(current!=null)
+	{	
+		prev=current;
+		current=current.next;		
+	} 
+        prev.next=nl;
+	prev.next.next=null;
+       }
+ }
+
+
+
+ public void reverseLink()
+{
+  link prev=null;
+  link current=first;
+  link nxt;
+  System.out.println("Reverse a link list ------------------>");
+  while(current!=null)
+	{
+	
+         
+	 nxt=current.next;
+	 current.next=prev;
+	 prev=current;
+	 current=nxt; 
+	}
+
+ first=prev;	
+ System.out.println("fird data"+first.data);
+ link itervari=first;
+  while(itervari.next!=null)
+	{
+	System.out.print(" ->"+itervari.data);
+	itervari=itervari.next;
+	}
+ 
+}
+
+
+
+}
+
+public class ll
+{
+ public static void main(String args[]) throws IOException
+ 	{
+	System.out.println("Inside Main class ");  
+	LinkedListApp obj=new LinkedListApp();
+	for(int i=0;i<=20;i++)
+	{
+	obj.appendLink(i);
+	}
+			
+        obj.displayLink();  
+	obj.reverseLink();
+        System.out.println("\nCalling for reversing the function");
+
+	
+        }
+}
+
